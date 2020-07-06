@@ -17,18 +17,15 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     Timer(
-      Duration(seconds: 4),
-      () => Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen())),
+      Duration(seconds: 6),
+      // () => Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen())),
+      () => Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => LoginScreen()), (route) => false)
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: whiteColor,
-      body: Center(
-        child: Image.asset('assets/Splash\ Screen.png'),
-      ),
+    return Container(child: Image.asset('assets/Splash\ Screen.png', fit: BoxFit.cover),
     );
   }
 }

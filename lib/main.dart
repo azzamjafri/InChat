@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:inchat/colors.dart';
 import 'package:inchat/splash_screen.dart';
 
 void main() {
@@ -10,11 +11,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'In Chat',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        
-        primarySwatch: Colors.blue,
-        
+        primarySwatch: blueColor,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: SplashScreen(),

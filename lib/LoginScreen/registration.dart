@@ -1,34 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:inchat/LoginScreen/registration.dart';
 import 'package:inchat/colors.dart';
 import 'package:inchat/custom_switch.dart';
 
-class LoginScreen extends StatefulWidget {
+class RegistrationScreen extends StatefulWidget {
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _RegistrationScreenState createState() => _RegistrationScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-
+class _RegistrationScreenState extends State<RegistrationScreen> {
 
   bool enable = false;
-  TextEditingController phoneNoController = new TextEditingController();
-  TextEditingController passwordController = new TextEditingController();
+  // false == Phone number, true = Email address
 
+  TextEditingController nameController = new TextEditingController();
+  TextEditingController phoneController = new TextEditingController();
+  TextEditingController upiIDController = new TextEditingController();
+  TextEditingController passwordController = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       body: getBody(),
     );
   }
-  
 
   getBody() {
     return Container(
 
 
       decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage('assets/Sign\ In\ screen.png'), fit: BoxFit.fill)
+        image: DecorationImage(image: AssetImage('assets/Sign\ Up.png'), fit: BoxFit.fill)
       ),
 
       
@@ -66,8 +66,29 @@ class _LoginScreenState extends State<LoginScreen> {
             padding: EdgeInsets.only(top: 12.0, bottom: 12.0),
           ),
 
+          Text('Your Name', style: TextStyle(color: Colors.blue)),
+          Container(
+            height: 45.0,
+            width: MediaQuery.of(context).size.width / 1.4,
+            
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(18.0),
+              color: Colors.grey[100],
+            ),
+            child: TextFormField(
+              controller: nameController,
+              decoration: InputDecoration(
+                fillColor: greyColor,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(18.0)
+                ),
+              ),
+              
+            ),
+          ),
+
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(10.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -91,7 +112,6 @@ class _LoginScreenState extends State<LoginScreen> {
               ],
             ),
           ),
-
           Container(
             height: 45.0,
             width: MediaQuery.of(context).size.width / 1.4,
@@ -101,7 +121,7 @@ class _LoginScreenState extends State<LoginScreen> {
               color: Colors.grey[100],
             ),
             child: TextFormField(
-              controller: phoneNoController,
+              controller: phoneController,
               decoration: InputDecoration(
                 fillColor: greyColor,
                 border: OutlineInputBorder(
@@ -112,34 +132,33 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
 
-          Padding(padding: EdgeInsets.only(top: 8.0, bottom: 8.0)),
-
-           Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text('Password', style: TextStyle(fontSize: 14.0, color: (!enable) ? Colors.grey : Colors.blue)),
-                Padding(padding: EdgeInsets.only(left: 10.0)),
-                Container(
-                  height: 23.0,
-                  width: 50.0,
-                  child: CustomSwitch(
-                    value: !enable,
-                    onChanged: (bool val){
-                      setState(() {
-                        enable = val;
-                        // print(enable);
-                      });
-                    },
-                  ),
+          Text('UPI ID', style: TextStyle(color: Colors.blue)),
+          Container(
+            height: 45.0,
+            width: MediaQuery.of(context).size.width / 1.4,
+            
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(18.0),
+              color: Colors.grey[100],
+            ),
+            child: TextFormField(
+              controller: upiIDController,
+              decoration: InputDecoration(
+                fillColor: greyColor,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(18.0)
                 ),
-                Padding(padding: EdgeInsets.only(right: 10.0)),
-                Text('OTP via SMS', style: TextStyle(fontSize: 14.0, color: (!enable) ? Colors.blue : Colors.grey)),
-              ],
+              ),
+              
             ),
           ),
 
+
+          
+
+          Padding(padding: EdgeInsets.only(top: 8.0, bottom: 8.0)),
+          Text('Create Password', style: TextStyle(color: Colors.blue)),
+         
           Container(
             height: 45.0,
             width: MediaQuery.of(context).size.width / 1.4,
@@ -173,29 +192,15 @@ class _LoginScreenState extends State<LoginScreen> {
               onPressed: () {},
               elevation: 10.0,
               color: blueColor,
-              child: Text('Confirm', style: TextStyle(color: whiteColor, fontSize: 16.0))
+              child: Text('Get Started', style: TextStyle(color: whiteColor, fontSize: 16.0))
             ),
           ),
 
-          Text('Forgot Password ? ', style: TextStyle(fontSize: 14.0, color: Colors.blue, letterSpacing: 0.7)),
+         
 
-          Padding(padding: EdgeInsets.only(top: 35.0),),
-
-          GestureDetector(
-            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => RegistrationScreen())),
-                      child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text('New User? ', style: TextStyle(color: greyColor, fontSize: 16.5)),
-                Text('Sign Up! ', style: TextStyle(color: Colors.blue, fontSize: 16.5)),
-              ],
-            ),
-          ),
-
-          Padding(padding: EdgeInsets.only(top: 40.0),),
+          Padding(padding: EdgeInsets.only(top: 18.0),),
         ],
       ),
     );
   }
 }
-
