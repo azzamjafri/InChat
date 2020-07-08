@@ -1,4 +1,4 @@
-package com.example.inchat
+package com.azzam.inchat
 
 import io.flutter.embedding.android.FlutterActivity
 

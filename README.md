@@ -1,6 +1,6 @@
-# inchat
+# InChat
 
-A new Flutter project.
+A new Chat App built with flutter
 
 ## Getting Started
 

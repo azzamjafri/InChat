@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:inchat/colors.dart';
 
-import 'LoginScreen/login.dart';
+import 'Registration/login.dart';
+
 
 class SplashScreen extends StatefulWidget {
 
@@ -17,8 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     Timer(
-      Duration(seconds: 6),
-      // () => Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen())),
+      Duration(seconds: 5),
       () => Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => LoginScreen()), (route) => false)
     );
   }

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:inchat/LoginScreen/registration.dart';
+import 'package:inchat/HomeScreen/home_screen.dart';
+
 import 'package:inchat/colors.dart';
 import 'package:inchat/custom_switch.dart';
+
+import 'registration.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -170,7 +173,9 @@ class _LoginScreenState extends State<LoginScreen> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(28.0),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+              },
               elevation: 10.0,
               color: blueColor,
               child: Text('Confirm', style: TextStyle(color: whiteColor, fontSize: 16.0))

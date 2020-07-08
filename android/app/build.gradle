@@ -38,8 +38,8 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.example.inchat"
-        minSdkVersion 16
+        applicationId "com.azzam.inchat"
+        minSdkVersion 23
         targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
